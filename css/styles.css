@@ -48,6 +48,14 @@ h1, h2, h3, h4 {
 .audio-column {
     width: 45%;
     text-align: center;
+
+}
+
+.audio-column-limit {
+    width: 45%;
+    text-align: center;
+    border-left: 3px solid black; /* Left border only */
+
 }
 
 audio {
