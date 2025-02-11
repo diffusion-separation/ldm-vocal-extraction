@@ -15,18 +15,18 @@
         <h1>Web demo for "Efficient and Fast Generative-Based Singing Voice Separation using a Latent Diffusion Model"</h1>
 
         <p>
-            <b>Abstract:</b> Separating individual elements from music mixtures is a valuable tool for music production and practice. 
-            While neural networks trained to mask mixture spectrograms have been the leading approach for this task, the significant
-            source overlap and correlation in music signals pose a challenge, and access to all elements in the mixture is often a 
-            constraint. Targeting music creators and practitioners who normally prioritize perceptual quality over objective metrics,
-            we explore the potential of score-based diffusion models to address music source separation in a generative fashion. 
-            We perform source-only separation of the singing voice, requiring only access to the solo vocal track and the corresponding
-            mixture. To align with creative workflows, we leverage latent diffusion: the system learns to generate samples encoded in
-            a learned latent space, and are then decoded into the original domain, enabling efficient optimization and faster inference.
-            Our generative system is trained using only open data. Despite being limited by the reconstruction loss of the latent encoder,
-            we perceptually improve over generative baselines, and level non-generative models in the literature on speech synthesis 
-            metrics and interference removal. We provide a noise robustness study on the latent encoder, providing insights on its
-            potential for latent diffusion research. Code and weights are released.
+            <b>Abstract:</b> Extracting individual elements from music mixtures is a valuable tool for music production and practice. 
+            While neural networks trained to mask mixture spectrograms have been the leading approach for this task, the significant 
+            source overlap and correlation in music signals poses a challenge. Also, accessing all elements in the mixture is crucial 
+            to train these systems, while complicated. Targeting music practitioners, who normally prioritize perceptual quality over 
+            objective metrics, we explore the potential of score-based diffusion models to address music source separation in a 
+            generative fashion. We perform source-only separation of the singing voice, requiring only access to solo vocal tracks and 
+            the corresponding mixtures for training. To align with creative workflows, we leverage latent diffusion: the system 
+            generates samples encoded in a pre-learned latent space, which are then decoded into waveforms, enabling efficient 
+            optimization and importantly, faster inference. Our system is trained using only open data. Despite being limited by the 
+            reconstruction loss of the latent encoder, we perceptually improve over generative baselines, and level the compared 
+            non-generative systems on speech synthesis metrics and interference removal. We provide a noise robustness study on the 
+            latent encoder, providing insights on its potential for latent diffusion. Code and weights are released.
         </p>
         
         <p>
@@ -304,10 +304,10 @@
                     context_channels: ${model.diffusion.context_channels}
                     
                 diffusion:
-                    _target_: diffdmx.audio_diffusion_pytorch.DiffusionModel
+                    _target_: diffdmx.DiffusionModel
                     net_t:
                         _target_: diffdmx.utils.get_hook
-                        import_path: diffdmx.audio_diffusion_pytorch.UNetV0
+                        import_path: diffdmx.UNet
             
                     dim: 1
                     in_channels: 128
